@@ -29,7 +29,7 @@ public class NetworkCaller extends AsyncTask<String, Void, String> {
     {
         String result = null;
         try {
-            result =  NetworkUtilities.AzureRequest(bitImg);
+            result =  NetworkUtilities.AzureRequest2(bitImg);
         } catch (Exception e) {
             e.printStackTrace();
         }
