@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_margin="16dp"
+    android:layout_height="match_parent"
+    tools:context="com.example.abhipubali.cameraappintent.MainActivity">
+
+
+
+    <Button
+        android:id="@+id/take_image_from_camera"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:onClick="takeImageFromCamera"
+        android:layout_height="wrap_content"
+        android:text="Take Photo From Camera"/>
+
+    <ImageView
+        android:id="@+id/image_from_camera"
+        android:layout_width="200dp"
+        android:src="@drawable/image"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/results_json"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="result shuld be here!"
+            android:textSize="18sp" />
+    </ScrollView>
+
+
+</LinearLayout>

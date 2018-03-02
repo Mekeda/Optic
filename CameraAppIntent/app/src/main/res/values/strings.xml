@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CameraAppIntent</string>
+    <string name="content_authority">com.example.abhipubali.cameraappintent</string>
+</resources>
