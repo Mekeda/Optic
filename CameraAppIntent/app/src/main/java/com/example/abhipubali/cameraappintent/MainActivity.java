@@ -20,11 +20,13 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
+
+import com.example.abhipubali.cameraappintent.utility.JasonParser;
 import com.example.abhipubali.cameraappintent.utility.NetworkCaller;
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 1888;
-
+    public static JasonParser jasonParser = new JasonParser();
     ImageView mImageView;
     TextView tv;
     public final String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.INTERNET};

@@ -6,7 +6,10 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.abhipubali.cameraappintent.MainActivity;
 import com.example.abhipubali.cameraappintent.R;
+
+import org.json.JSONException;
 
 import static android.content.ContentValues.TAG;
 
@@ -40,8 +43,27 @@ public class NetworkCaller extends AsyncTask<String, Void, String> {
     {
 
         if (result != null && !result.equals("")) {
-            tv.setText(result);
-            Log.d(TAG, result);
+            try {
+                MainActivity.jasonParser.jsonParsing(result);
+                StringBuffer str = new StringBuffer();
+                str.append("Captions:==");
+                for (String s: MainActivity.jasonParser.getCaptions())
+                    str.append(s+"\n");
+
+                str.append("Tags:==");
+                for (String t: MainActivity.jasonParser.getListOfItem())
+                    str.append(t+"\n");
+
+                str.append("categories:==");
+                for (String t: MainActivity.jasonParser.getListOfCategories())
+                    str.append(t+"\n");
+
+                tv.setText(str.toString());
+                Log.d(TAG, str.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
 
         } else {
             tv.setText("error");
