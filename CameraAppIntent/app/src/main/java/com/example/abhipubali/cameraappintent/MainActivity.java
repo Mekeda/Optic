@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -20,9 +21,11 @@ import android.widget.TextView;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.util.Locale;
 import com.example.abhipubali.cameraappintent.utility.JasonParser;
 import com.example.abhipubali.cameraappintent.utility.NetworkCaller;
+import com.example.abhipubali.cameraappintent.utility.VoiceOutput;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int CAMERA_REQUEST = 1888;
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     TextView tv;
     public final String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO, Manifest.permission.INTERNET};
     private static final int PERMISSION_REQUEST_CODE = 200;
+    //public static VoiceOutput voiceOutput;
+    public static TextToSpeech t1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,17 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(builder.build());
         mImageView = (ImageView)this.findViewById(R.id.image_from_camera);
+
+        //**--- textto speech-----**//
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.UK);
+                }
+            }
+        });
+        //------ text to speech------//
     }
 
     /**
