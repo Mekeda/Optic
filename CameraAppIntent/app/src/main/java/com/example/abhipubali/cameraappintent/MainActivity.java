@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
        // Uri imageFileUri = Uri.fromFile(imageFile);
 
         //cameraIntent.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, imageFileUri);
+        jasonParser.reset();
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
 
     }

@@ -41,14 +41,20 @@ public class JasonParser {
         else if (captionToString!=null)
             return null;
         StringBuffer str = new StringBuffer();
-        for (String s : getCaptions()) {
-            str.append(s + " or\n");
+        String[] arr = getCaptions();
+        int len = arr.length;
+        for (int i=0;i<len;i++ ) {
+            String s = arr[i];
+            str.append(s );
+            if(i<len-1)
+                str.append(", or\n");
 
         }
         str.append(".");
         captionToString = str.toString();
         return str.toString();
     }
+
     public String getListOfItemToString()
     {
         if(listOfItem == null || listOfItem.length<=0)
@@ -56,8 +62,13 @@ public class JasonParser {
         else if (listOfItemToString!=null)
             return null;
         StringBuffer str = new StringBuffer();
-        for (String s : getListOfItem()) {
-            str.append(s + " and\n");
+        String[] arr = getListOfItem();
+        int len = arr.length;
+        for (int i=0;i<len;i++ ) {
+            String s = arr[i];
+            str.append(s );
+            if(i<len-1)
+                str.append(", and\n");
 
         }
         str.append(".");
@@ -73,9 +84,13 @@ public class JasonParser {
         else if (listOfCategoriesToString!=null)
             return null;
         StringBuffer str = new StringBuffer();
-        for (String s : getListOfCategories()) {
-            str.append(s + " and\n");
-
+        String[] arr = getListOfCategories();
+        int  len = arr.length;
+        for (int i=0;i<len ;i++) {
+            String s = arr[i];
+            str.append(s);
+            if(i<len-1)
+                str.append(", and\n");
         }
         str.append(".");
         listOfCategoriesToString= str.toString();
@@ -112,5 +127,15 @@ public class JasonParser {
         }*/
     }
 
+    public void reset()
+    {
+        captions = null;
+        listOfItem = null;
+        listOfCategories = null;
+        captionToString = null;
+        listOfCategoriesToString = null;
+        listOfItemToString = null;
+        System.gc();
+    }
 
 }
